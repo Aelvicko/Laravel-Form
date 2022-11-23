@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Okt 2022 pada 12.35
+-- Waktu pembuatan: 23 Nov 2022 pada 15.53
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -40,6 +40,32 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `mahasiswas`
+--
+
+CREATE TABLE `mahasiswas` (
+  `nim` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `umur` int(11) NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kota` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kelas` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jurusan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `mahasiswas`
+--
+
+INSERT INTO `mahasiswas` (`nim`, `nama`, `umur`, `alamat`, `kota`, `kelas`, `jurusan`, `created_at`, `updated_at`) VALUES
+('G.231.21.0080', 'M.hasif', 20, 'bangetayu', 'Semarang', 'B sore', 'Teknik Informatika', '2022-11-23 07:51:29', '2022-11-23 07:51:29'),
+('G.231.21.0083', 'Aelvicko Lindra Kelana', 19, 'Jl.beringin ii karangroto', 'Semarang', 'B sore', 'Teknik Informatika', '2022-11-23 07:50:02', '2022-11-23 07:50:02');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `migrations`
 --
 
@@ -58,7 +84,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_10_31_112240_create_posts_table', 2);
+(5, '2022_10_31_112240_create_posts_table', 2),
+(6, '2022_11_23_142715_create_mahasiswas_table', 3);
 
 -- --------------------------------------------------------
 
@@ -111,7 +138,10 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Badut', '123456789', '2022-10-31 04:28:11', '2022-10-31 04:28:11'),
-(2, 'koplak', 'kamu', '2022-10-31 04:29:52', '2022-10-31 04:29:52');
+(3, 'Hasif', 'Laravel', '2022-11-06 02:12:14', '2022-11-06 02:12:14'),
+(4, 'nnkcdacadkcacaocadbcb', 'cusaaobcaocacacbaosca', '2022-11-17 03:58:14', '2022-11-17 03:58:14'),
+(5, 'mamalia', 'hewan menyusui', '2022-11-17 03:59:56', '2022-11-17 03:59:56'),
+(6, 'apaan tuh', 'kamu nanyaaa?', '2022-11-20 00:44:54', '2022-11-20 00:44:54');
 
 -- --------------------------------------------------------
 
@@ -140,6 +170,12 @@ CREATE TABLE `users` (
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indeks untuk tabel `mahasiswas`
+--
+ALTER TABLE `mahasiswas`
+  ADD PRIMARY KEY (`nim`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -188,7 +224,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -200,7 +236,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
